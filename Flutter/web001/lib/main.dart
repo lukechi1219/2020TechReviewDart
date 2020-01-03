@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:web001/widget/device_drop_down_list.dart';
+import 'package:web001/widget/sized_box_device.dart';
 
 void main() => runApp(MyApp());
 
@@ -45,6 +47,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  String _deviceType = 'iPhone 6/7/8';
 
   void _incrementCounter() {
     setState(() {
@@ -65,7 +68,8 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return Scaffold(
+
+    Widget childApp = Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
@@ -106,6 +110,24 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+
+    return Scaffold(
+      backgroundColor: Colors.black87,
+      body: Column(
+        children: <Widget>[
+          DeviceDropDownList(
+            initValue: _deviceType,
+            onChanged: (String newValue) {
+              // change state _MyHomePageState
+              setState(() {
+                _deviceType = newValue;
+              });
+            },
+          ),
+          SizedBoxDevice(deviceType: _deviceType, child: childApp),
+        ],
+      ),
     );
   }
 }
