@@ -43,7 +43,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
   String _deviceType = 'iPhone 6/7/8';
+
+  // TODO: able to switch _childApp ?
+  Widget _childApp = CounterApp(title: 'Flutter Demo Home Page');
 
   void _updateDeviceType(String newValue) {
     // change state _MyHomePageState
@@ -61,8 +65,6 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
 
-    Widget childApp = CounterApp(title: 'Flutter Demo Home Page');
-
     return Scaffold(
       backgroundColor: Colors.black87,
       body: Column(
@@ -71,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
             initValue: _deviceType,
             onChanged: _updateDeviceType,
           ),
-          SizedBoxDevice(deviceType: _deviceType, child: childApp),
+          SizedBoxDevice(deviceType: _deviceType, child: _childApp),
         ],
       ),
     );
