@@ -12,7 +12,7 @@ class DeviceDropDownList extends StatelessWidget {
       color: Colors.grey,
       child: DropdownButton<String>(
         value: this.initValue,
-        items: <String>['iPhone 6/7/8', 'iPhone 6/7/8 Plus', 'iPhone X']
+        items: <String>['iPhone 6/7/8', 'iPhone 6/7/8 Plus', 'iPhone X', 'iPad']
             .map((String value) {
           return new DropdownMenuItem<String>(
             value: value,

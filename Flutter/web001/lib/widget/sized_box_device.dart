@@ -22,9 +22,9 @@ class SizedBoxDevice extends StatelessWidget {
     } else if (deviceType == 'iPhone X') {
       width = 375;
       height = 812;
-//    } else if (deviceType == 'iPad') {
-//      width = 768;
-//      height = 1024;
+    } else if (deviceType == 'iPad') {
+      width = 768;
+      height = 1024;
     }
 
     return Container(
