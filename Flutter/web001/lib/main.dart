@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:device_preview/device_preview.dart';
+
 import 'package:web001/app/counter_app.dart';
 import 'package:web001/widget/device_drop_down_list.dart';
 import 'package:web001/widget/sized_box_device.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(
+  DevicePreview(
+    builder: (context) => MyApp(),
+  ),
+);
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      locale: DevicePreview.of(context).locale, // <--- Add the locale
+      builder: DevicePreview.appBuilder, // <--- Add the builder
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -44,17 +52,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  String _deviceType = 'iPhone 6/7/8';
-
   // TODO: able to switch _childApp ?
   Widget _childApp = CounterApp(title: 'Flutter Demo Home Page');
-
-  void _updateDeviceType(String newValue) {
-    // change state _MyHomePageState
-    setState(() {
-      _deviceType = newValue;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,17 +64,6 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
 
-    return Scaffold(
-      backgroundColor: Colors.black87,
-      body: Column(
-        children: <Widget>[
-          DeviceDropDownList(
-            initValue: _deviceType,
-            onChanged: _updateDeviceType,
-          ),
-          SizedBoxDevice(deviceType: _deviceType, child: _childApp),
-        ],
-      ),
-    );
+    return _childApp;
   }
 }
