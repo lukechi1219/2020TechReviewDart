@@ -59,53 +59,89 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+//      appBar: AppBar(
+//        title: Text(widget.title),
+//      ),
+      backgroundColor: Colors.teal,
+      body: SafeArea(
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
+//          mainAxisAlignment: MainAxisAlignment.center,
+//          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+            CircleAvatar(
+              radius: 50.0,
+              backgroundImage: AssetImage('images/luke.jpg'),
             ),
             Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
+              'Luke Chi',
+              style: TextStyle(
+                fontFamily: 'Pacifico',
+                fontSize: 40.0,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              'Flutter Developer',
+              style: TextStyle(
+                fontFamily: 'Source Sans Pro',
+                color: Colors.teal.shade100,
+                fontSize: 20.0,
+                letterSpacing: 2.5,
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(10.0),
+              color: Colors.white,
+              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+              child: Row(
+                children: <Widget>[
+                  Icon(
+                    Icons.phone,
+                    color: Colors.teal,
+                  ),
+                  SizedBox(
+                    width: 10.0,
+                  ),
+                  Text(
+                    '+886 930-564-409',
+                    style: TextStyle(
+                      color: Colors.teal.shade900,
+                      fontFamily: 'Source Sans Pro',
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(10.0),
+              color: Colors.white,
+              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+              child: Row(
+                children: <Widget>[
+                  Icon(
+                    Icons.email,
+                    color: Colors.teal,
+                  ),
+                  SizedBox(
+                    width: 10.0,
+                  ),
+                  Text(
+                    'luke.chi@gmail.com',
+                    style: TextStyle(
+                      color: Colors.teal.shade900,
+                      fontFamily: 'Source Sans Pro',
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
