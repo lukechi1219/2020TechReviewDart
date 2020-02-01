@@ -67,7 +67,7 @@ void testApi(List<String> cityList) async {
       var count = 0;
       for (var store in geoPositions) {
         count++;
-        if (count > 10) {
+        if (count > 3) {
           break;
         }
         var x = (double.parse(store['X'].toString())/1000000);
