@@ -39,9 +39,9 @@ void main() {
 }
 
 void testApi(List<String> cityList) async {
-  //
+
   var total711StoreCount = 0;
-  //
+
   final chopper = ChopperClient(
     baseUrl: 'https://emap.pcsc.com.tw',
     services: [
@@ -52,13 +52,15 @@ void testApi(List<String> cityList) async {
   final myService = PcscApiService.create(chopper);
 
   for (var city in cityList) {
+
     final response = await myService.postQuery({
       'commandid': 'SearchStore',
       'city': city,
       'address': '號',
     });
-//  print(response.body);
+
     List<dynamic> geoPositions = xml2json.parse711xml(response.body);
+
     print('$city ${geoPositions.length}');
     //
     total711StoreCount += geoPositions.length;
