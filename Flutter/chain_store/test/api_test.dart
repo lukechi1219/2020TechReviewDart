@@ -40,6 +40,8 @@ void main() {
 
 void testApi(List<String> cityList) async {
   //
+  var total711StoreCount = 0;
+  //
   final chopper = ChopperClient(
     baseUrl: 'https://emap.pcsc.com.tw',
     services: [
@@ -53,12 +55,43 @@ void testApi(List<String> cityList) async {
     final response = await myService.postQuery({
       'commandid': 'SearchStore',
       'city': city,
-      'address': '路',
+      'address': '號',
     });
 //  print(response.body);
     List<dynamic> geoPositions = xml2json.parse711xml(response.body);
     print('$city ${geoPositions.length}');
+    //
+    total711StoreCount += geoPositions.length;
+
+    if (city == '台北市') {
+      var count = 0;
+      for (var store in geoPositions) {
+        count++;
+        if (count > 10) {
+          break;
+        }
+        var x = (double.parse(store['X'].toString())/1000000);
+        var y = (double.parse(store['Y'].toString())/1000000);
+        /// 門市店號：167651
+        print(store['POIID']);
+        ///門市店名：一零一
+        print(store['POIName']);
+        print('https://www.google.com/maps/@$y,$x,20z');
+        ///電話：(02)27222342
+        print(store['Telno']);
+        ///接收傳真服務(付費)：(02)81010893
+        print(store['FaxNo']);
+        ///地址：台北市信義區信義路五段7號35樓
+        print(store['Address']);
+        print(store['Store_URL']);
+        print(store['StoreImageTitle']);
+        print(store['SpecialStore_Kind']);
+        print('');
+      }
+    }
   }
+  //
+  print('total711StoreCount: $total711StoreCount');
 
   chopper.dispose();
 }
