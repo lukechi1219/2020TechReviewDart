@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'ui/animated_container.dart';
 import 'ui/home.dart';
 
 //void main() => runApp(
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         HomePage.rout: (context) => HomePage(title: 'Flutter Demo Home Page'),
+        AnimatedContainerPage.rout: (context) => AnimatedContainerPage(title: 'Flutter Demo Home Page'),
       },
     );
   }

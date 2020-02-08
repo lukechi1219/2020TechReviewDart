@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:widget_of_the_week/ui/home.dart';
 
+import 'animated_container.dart';
+
 class RoutesDrawer extends StatelessWidget {
   const RoutesDrawer({
     Key key,
@@ -22,17 +24,17 @@ class RoutesDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            title: Text('2. Test'),
+            title: Text('AnimatedContainer'),
             subtitle: Text('sub'),
             onTap: () {
-//                      Navigator.of(context).push(route);
+              Navigator.pushNamed(context, AnimatedContainerPage.rout);
             },
           ),
           ListTile(
             title: Text('3. Test'),
             subtitle: Text('sub'),
             onTap: () {
-//                      Navigator.of(context).push(route);
+//              Navigator.pushNamed(context, HomePage.rout);
             },
           ),
         ],
