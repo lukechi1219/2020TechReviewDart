@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'drawer.dart';
+
 class HomePage extends StatefulWidget {
   static var rout = '/';
 
@@ -18,36 +20,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            DrawerHeader(
-              child: Text('Header'),
-            ),
-            ListTile(
-              title: Text('1. Test'),
-              subtitle: Text('sub'),
-              onTap: () {
-//                      Navigator.of(context).push(route);
-              },
-            ),
-            ListTile(
-              title: Text('2. Test'),
-              subtitle: Text('sub'),
-              onTap: () {
-//                      Navigator.of(context).push(route);
-              },
-            ),
-            ListTile(
-              title: Text('3. Test'),
-              subtitle: Text('sub'),
-              onTap: () {
-//                      Navigator.of(context).push(route);
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: RoutesDrawer(),
       body: SafeArea(
         child: Column(
           children: <Widget>[
