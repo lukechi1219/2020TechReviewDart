@@ -33,19 +33,41 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            DrawerHeader(
+              child: Text('Header'),
+            ),
+            ListTile(
+              title: Text('1. Test'),
+              subtitle: Text('sub'),
+              onTap: () {
+//                      Navigator.of(context).push(route);
+              },
+            ),
+            ListTile(
+              title: Text('2. Test'),
+              subtitle: Text('sub'),
+              onTap: () {
+//                      Navigator.of(context).push(route);
+              },
+            ),
+            ListTile(
+              title: Text('3. Test'),
+              subtitle: Text('sub'),
+              onTap: () {
+//                      Navigator.of(context).push(route);
+              },
+            ),
+          ],
+        ),
       ),
       body: SafeArea(
         child: Column(
@@ -129,19 +151,23 @@ class _MyHomePageState extends State<MyHomePage> {
               runSpacing: 4.0, // gap between lines
               children: <Widget>[
                 Chip(
-                  avatar: CircleAvatar(backgroundColor: Colors.blue.shade900, child: Text('AH')),
+                  avatar: CircleAvatar(
+                      backgroundColor: Colors.blue.shade900, child: Text('AH')),
                   label: Text('Hamilton'),
                 ),
                 Chip(
-                  avatar: CircleAvatar(backgroundColor: Colors.blue.shade900, child: Text('ML')),
+                  avatar: CircleAvatar(
+                      backgroundColor: Colors.blue.shade900, child: Text('ML')),
                   label: Text('Lafayette'),
                 ),
                 Chip(
-                  avatar: CircleAvatar(backgroundColor: Colors.blue.shade900, child: Text('HL')),
+                  avatar: CircleAvatar(
+                      backgroundColor: Colors.blue.shade900, child: Text('HL')),
                   label: Text('Mulligan'),
                 ),
                 Chip(
-                  avatar: CircleAvatar(backgroundColor: Colors.blue.shade900, child: Text('JL')),
+                  avatar: CircleAvatar(
+                      backgroundColor: Colors.blue.shade900, child: Text('JL')),
                   label: Text('Laurens'),
                 ),
               ],
