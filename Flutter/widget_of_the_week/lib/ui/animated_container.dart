@@ -18,10 +18,12 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
   var _color = Colors.red;
 
   final _myDuration = Duration(
-    milliseconds: 500,
+    milliseconds: 1500,
   );
 
   var _myHeight = 75.0;
+
+  var _opacity = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +35,14 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
           _color = Colors.red;
         }
         if (_myHeight == 75.0) {
-          _myHeight += 300.0;
+          _myHeight += 200.0;
         } else {
-          _myHeight -= 300.0;
+          _myHeight -= 200.0;
+        }
+        if (_opacity == 0.0) {
+          _opacity = 1.0;
+        } else {
+          _opacity = 0.0;
         }
       });
     };
@@ -52,8 +59,8 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
               children: <Widget>[
                 AnimatedContainer(
                   color: _color,
-                  duration: _myDuration,
                   height: _myHeight,
+                  duration: _myDuration,
                   width: 200.0,
                   curve: Curves.easeInBack,
 //                    curve: Curves.easeInSine,
@@ -67,6 +74,28 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
                     style: Theme.of(context).textTheme.headline,
                   ),
                 ),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                Stack(
+                  children: <Widget>[
+                    Image.asset(
+                      'images/cat.jpg',
+                      width: 250.0,
+                      height: 250.0,
+                    ),
+                    AnimatedOpacity(
+                      opacity: _opacity,
+                      duration: _myDuration,
+                      child: Image.asset(
+                        'images/cat2.jpg',
+                        width: 250.0,
+                        height: 250.0,
+                      ),
+                    ),
+                  ],
+                )
               ],
             ),
             FloatingActionButton(

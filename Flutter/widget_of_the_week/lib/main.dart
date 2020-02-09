@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
 //      home: HomePage(title: 'Flutter Demo Home Page'),
       initialRoute: '/',
       routes: {
-        HomePage.rout: (context) => HomePage(title: 'Flutter Demo Home Page'),
-        AnimatedContainerPage.rout: (context) => AnimatedContainerPage(title: 'Flutter Demo Home Page'),
+        HomePage.rout: (context) => HomePage(title: 'Flutter Demo Home'),
+        AnimatedContainerPage.rout: (context) => AnimatedContainerPage(title: 'Animated'),
       },
     );
   }
