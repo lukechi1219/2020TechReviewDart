@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'animated_container.dart';
 import 'future_builder.dart';
 import 'home.dart';
+import 'page_view.dart';
 import 'transition.dart';
 
 class RoutesDrawer extends StatelessWidget {
@@ -17,6 +18,13 @@ class RoutesDrawer extends StatelessWidget {
         children: <Widget>[
           DrawerHeader(
             child: Text('Header'),
+          ),
+          ListTile(
+            title: Text('Welcome'),
+            subtitle: Text('sub'),
+            onTap: () {
+              Navigator.pushNamed(context, WelcomePage.rout);
+            },
           ),
           ListTile(
             title: Text('Home'),

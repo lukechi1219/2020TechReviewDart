@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'drawer.dart';
 
 class HomePage extends StatelessWidget {
-  static final rout = '/';
+  static final rout = '/home';
 
   HomePage({Key key, this.title}) : super(key: key);
 
