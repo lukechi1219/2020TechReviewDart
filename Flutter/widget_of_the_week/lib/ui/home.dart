@@ -16,6 +16,25 @@ class HomePage extends StatelessWidget {
         title: Text(this.title),
       ),
       drawer: RoutesDrawer(),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          // tbd...
+        },
+      ),
+//      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+//      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+//      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+//      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+//      floatingActionButtonLocation: FloatingActionButtonLocation.miniStartTop,
+//      floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.yellow,
+        child: Container(
+          height: 50.0,
+        ),
+      ),
       body: SafeArea(
         child: Column(
           children: <Widget>[
