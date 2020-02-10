@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'ui/animated_container.dart';
+import 'ui/future_builder.dart';
 import 'ui/home.dart';
 
 //void main() => runApp(
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
       routes: {
         HomePage.rout: (context) => HomePage(title: 'Flutter Demo Home'),
         AnimatedContainerPage.rout: (context) => AnimatedContainerPage(title: 'Animated'),
+        FutureBuilderPage.rout: (context) => FutureBuilderPage(title: 'Animated'),
       },
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widget_of_the_week/ui/future_builder.dart';
 import 'package:widget_of_the_week/ui/home.dart';
 
 import 'animated_container.dart';
@@ -31,10 +32,10 @@ class RoutesDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            title: Text('3. Test'),
+            title: Text('FutureBuilder'),
             subtitle: Text('sub'),
             onTap: () {
-//              Navigator.pushNamed(context, HomePage.rout);
+              Navigator.pushNamed(context, FutureBuilderPage.rout);
             },
           ),
         ],
