@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'ui/animated_container.dart';
 import 'ui/future_builder.dart';
 import 'ui/home.dart';
+import 'ui/transition.dart';
 
 //void main() => runApp(
 //      DevicePreview(
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         HomePage.rout: (context) => HomePage(title: 'Flutter Demo Home'),
         AnimatedContainerPage.rout: (context) => AnimatedContainerPage(title: 'Animated'),
         FutureBuilderPage.rout: (context) => FutureBuilderPage(title: 'Animated'),
+        TransitionPage.rout: (context) => TransitionPage(title: 'Animated'),
       },
     );
   }

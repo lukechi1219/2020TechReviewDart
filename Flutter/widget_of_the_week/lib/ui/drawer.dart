@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:widget_of_the_week/ui/future_builder.dart';
-import 'package:widget_of_the_week/ui/home.dart';
 
 import 'animated_container.dart';
+import 'future_builder.dart';
+import 'home.dart';
+import 'transition.dart';
 
 class RoutesDrawer extends StatelessWidget {
   const RoutesDrawer({
@@ -36,6 +37,13 @@ class RoutesDrawer extends StatelessWidget {
             subtitle: Text('sub'),
             onTap: () {
               Navigator.pushNamed(context, FutureBuilderPage.rout);
+            },
+          ),
+          ListTile(
+            title: Text('Transition'),
+            subtitle: Text('sub'),
+            onTap: () {
+              Navigator.pushNamed(context, TransitionPage.rout);
             },
           ),
         ],
