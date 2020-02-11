@@ -4,19 +4,19 @@ import 'drawer.dart';
 
 import '../util/ui_util.dart';
 
-class FutureBuilderPage extends StatefulWidget {
+class FuturePage extends StatefulWidget {
   static final rout = '/future_builder';
   final String title;
 
-  FutureBuilderPage({Key key, this.title}) : super(key: key);
+  FuturePage({Key key, this.title}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return _FutureBuilderPagePageState();
+    return _FuturePageState();
   }
 }
 
-class _FutureBuilderPagePageState extends State<FutureBuilderPage> {
+class _FuturePageState extends State<FuturePage> {
   @override
   Widget build(BuildContext context) {
     //

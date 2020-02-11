@@ -4,19 +4,19 @@ import 'drawer.dart';
 
 import '../util/ui_util.dart';
 
-class AnimatedContainerPage extends StatefulWidget {
+class AnimatedPage extends StatefulWidget {
   static final rout = '/animated_container';
   final String title;
 
-  AnimatedContainerPage({Key key, this.title}) : super(key: key);
+  AnimatedPage({Key key, this.title}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return _AnimatedContainerPageState();
+    return _AnimatedPageState();
   }
 }
 
-class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
+class _AnimatedPageState extends State<AnimatedPage> {
   var _color = Colors.red;
 
   final _myDuration = Duration(

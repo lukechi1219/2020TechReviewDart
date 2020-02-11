@@ -4,6 +4,7 @@ import 'animated_container.dart';
 import 'future_builder.dart';
 import 'home.dart';
 import 'page_view.dart';
+import 'table.dart';
 import 'transition.dart';
 
 class RoutesDrawer extends StatelessWidget {
@@ -37,14 +38,14 @@ class RoutesDrawer extends StatelessWidget {
             title: Text('AnimatedContainer'),
             subtitle: Text('sub'),
             onTap: () {
-              Navigator.pushNamed(context, AnimatedContainerPage.rout);
+              Navigator.pushNamed(context, AnimatedPage.rout);
             },
           ),
           ListTile(
             title: Text('FutureBuilder'),
             subtitle: Text('sub'),
             onTap: () {
-              Navigator.pushNamed(context, FutureBuilderPage.rout);
+              Navigator.pushNamed(context, FuturePage.rout);
             },
           ),
           ListTile(
@@ -52,6 +53,13 @@ class RoutesDrawer extends StatelessWidget {
             subtitle: Text('sub'),
             onTap: () {
               Navigator.pushNamed(context, TransitionPage.rout);
+            },
+          ),
+          ListTile(
+            title: Text('Table'),
+            subtitle: Text('sub'),
+            onTap: () {
+              Navigator.pushNamed(context, TablePage.rout);
             },
           ),
         ],
