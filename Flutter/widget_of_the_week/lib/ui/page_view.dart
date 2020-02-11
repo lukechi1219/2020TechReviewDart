@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'drawer.dart';
 import 'home.dart';
+
+import '../util/ui_util.dart';
 
 class WelcomePage extends StatelessWidget {
   static final rout = '/';
@@ -28,13 +29,15 @@ class WelcomePage extends StatelessWidget {
       ],
     );
 
-    return Scaffold(
+    return SizedBoxUtil.build(
+        context,
+        Scaffold(
 //      appBar: AppBar(
 //        title: Text(this.title),
 //      ),
 //      drawer: RoutesDrawer(),
-      body: pageView,
-    );
+          body: pageView,
+        ));
   }
 }
 
@@ -219,4 +222,3 @@ class WelcomePage3 extends StatelessWidget {
     );
   }
 }
-

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'drawer.dart';
 
+import '../util/ui_util.dart';
+
 class TransitionPage extends StatefulWidget {
   static final rout = '/transition';
   final String title;
@@ -43,26 +45,28 @@ class _TransitionPageState extends State<TransitionPage>
     //
     _controller.forward();
     //
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      drawer: RoutesDrawer(),
-      body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            FadeTransition(
-              opacity: _animation,
-              child: Text(
-                'FadeTransition here',
-                style: Theme.of(context).textTheme.display1,
-              ),
-            )
-          ],
-        ),
-      ),
-    );
+    return SizedBoxUtil.build(
+        context,
+        Scaffold(
+          appBar: AppBar(
+            title: Text(widget.title),
+          ),
+          drawer: RoutesDrawer(),
+          body: SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                FadeTransition(
+                  opacity: _animation,
+                  child: Text(
+                    'FadeTransition here',
+                    style: Theme.of(context).textTheme.display1,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ));
   }
 }
