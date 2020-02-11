@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'ui/animated_container.dart';
 import 'ui/future_builder.dart';
+import 'ui/grid_view.dart';
 import 'ui/home.dart';
 import 'ui/page_view.dart';
+import 'ui/sliver.dart';
 import 'ui/table.dart';
 import 'ui/transition.dart';
 
@@ -34,6 +36,8 @@ class MyApp extends StatelessWidget {
         FuturePage.rout: (context) => FuturePage(title: 'FutureBuilder'),
         TransitionPage.rout: (context) => TransitionPage(title: 'Transition'),
         TablePage.rout: (context) => TablePage(title: 'Table'),
+        SliverPage.rout: (context) => SliverPage(title: 'Table'),
+        GridPage.rout: (context) => GridPage(title: 'Table'),
       },
     );
   }
