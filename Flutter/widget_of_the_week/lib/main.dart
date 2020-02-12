@@ -4,6 +4,7 @@ import 'ui/animated_container.dart';
 import 'ui/future_builder.dart';
 import 'ui/grid_view.dart';
 import 'ui/home.dart';
+import 'ui/inherited.dart';
 import 'ui/page_view.dart';
 import 'ui/sliver.dart';
 import 'ui/table.dart';
@@ -38,6 +39,8 @@ class MyApp extends StatelessWidget {
         TablePage.rout: (context) => TablePage(title: 'Table'),
         SliverPage.rout: (context) => SliverPage(title: 'Table'),
         GridPage.rout: (context) => GridPage(title: 'Table'),
+        InheritedWidgetPage.rout: (context) => InheritedWidgetPage(title: 'InheritedWidget'),
+        InheritedModelPage.rout: (context) => InheritedModelPage(title: 'InheritedModel'),
       },
     );
   }
