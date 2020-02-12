@@ -10,6 +10,73 @@ class SliverPage extends StatelessWidget {
 
   final String title;
 
+  static final colorList = [
+    Colors.lightGreen,
+    Colors.purpleAccent,
+    Colors.yellow,
+    Colors.blue,
+    Colors.brown,
+    Colors.cyan,
+    Colors.deepOrange,
+  ];
+
+  final sliverAppBar = SliverAppBar(
+    floating: false,
+    pinned: true,
+    snap: false,
+    stretch: false,
+    expandedHeight: 200.0,
+    flexibleSpace: FlexibleSpaceBar(
+      background: Image.asset(
+        'images/cat.jpg',
+      ),
+    ),
+    title: Text(
+      'Sliver App Bar',
+    ),
+  );
+
+  /*
+   */
+  final sliverList = SliverList(
+    delegate: SliverChildBuilderDelegate(
+      (context, index) {
+        return Row(
+          children: <Widget>[
+            Expanded(
+              child: Container(
+                height: 100.0,
+                color: colorList[index],
+                child: Text(
+                  'text $index',
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+      childCount: colorList.length,
+    ),
+  );
+
+  /*
+   */
+  final sliverGrid = SliverGrid(
+    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      crossAxisCount: 5,
+    ),
+    delegate: SliverChildBuilderDelegate((context, index) {
+      return Container(
+        color: colorList[index],
+        child: Text(
+          'Text $index',
+        ),
+      );
+    }, childCount: colorList.length),
+  );
+
+  /*
+   */
   @override
   Widget build(BuildContext context) {
     return SizedBoxUtil.build(
@@ -21,125 +88,9 @@ class SliverPage extends StatelessWidget {
           drawer: RoutesDrawer(),
           body: CustomScrollView(
             slivers: <Widget>[
-              SliverAppBar(
-                floating: false,
-                pinned: true,
-                snap: false,
-                stretch: false,
-                expandedHeight: 200.0,
-                flexibleSpace: FlexibleSpaceBar(
-                  background: Image.asset(
-                    'images/cat.jpg',
-                  ),
-                ),
-                title: Text(
-                  'Sliver App Bar',
-                ),
-              ),
-              SliverList(
-                  delegate: SliverChildListDelegate([
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Container(
-                        height: 150.0,
-                        color: Colors.lightGreen,
-                        child: Text(
-                          'text 1',
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Container(
-                        height: 150.0,
-                        color: Colors.purpleAccent,
-                        child: Text(
-                          'text 2',
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Container(
-                        height: 150.0,
-                        color: Colors.yellow,
-                        child: Text(
-                          'text 3',
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Container(
-                        height: 150.0,
-                        color: Colors.blue,
-                        child: Text(
-                          'text 4',
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Container(
-                        height: 150.0,
-                        color: Colors.brown,
-                        child: Text(
-                          'text 5',
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Container(
-                        height: 150.0,
-                        color: Colors.cyan,
-                        child: Text(
-                          'text 6',
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Container(
-                        height: 150.0,
-                        color: Colors.deepOrange,
-                        child: Text(
-                          'text 7',
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ])),
-//              SliverGrid(
-//                delegate: SliverChildListDelegate(
-//                  [
-//                    Row(),
-//                  ],
-//                ),
-//                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//                  crossAxisCount: 5,
-//                ),
-//              ),
+              sliverAppBar,
+              sliverList,
+              sliverGrid,
             ],
           ),
         ));
