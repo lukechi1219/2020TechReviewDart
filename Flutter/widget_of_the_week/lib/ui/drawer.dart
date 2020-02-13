@@ -14,11 +14,64 @@ class RoutesDrawer extends StatelessWidget {
     Key key,
   }) : super(key: key);
 
+  static List<Type> widgetList = [
+    Container,
+    WelcomePage,
+    HomePage,
+    AnimatedPage,
+    FuturePage,
+    TransitionPage,
+    TablePage,
+    SliverPage,
+    GridPage,
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
         children: <Widget>[
+          ListView.builder(
+            itemBuilder: (context, index) {
+              var rout = '/';
+              var widget = widgetList[index];
+
+              switch (widget) {
+                case Container:
+                  rout = '/';
+                  break;
+                case WelcomePage:
+                  rout = WelcomePage.rout;
+                  break;
+                case WelcomePage:
+                  rout = WelcomePage.rout;
+                  break;
+                default:
+                  rout = '/';
+                  break;
+              }
+
+              if (index == 0) {
+                return DrawerHeader(
+                  child: Container(
+                    color: Colors.lightGreen,
+                    child: Text(
+                      'Header',
+                    ),
+                  ),
+                );
+              }
+
+              return ListTile(
+                title: Text(widget.toString()),
+                subtitle: Text('sub'),
+                onTap: () {
+                  Navigator.pushNamed(context, rout);
+                },
+              );
+            },
+            itemCount: widgetList.length,
+          ),
           DrawerHeader(
             child: Container(
               color: Colors.lightGreen,
