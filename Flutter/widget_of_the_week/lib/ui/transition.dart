@@ -5,7 +5,7 @@ import 'drawer.dart';
 import '../util/ui_util.dart';
 
 class TransitionPage extends StatefulWidget {
-  static final rout = '/transition';
+  static final route = '/transition';
   final String title;
 
   TransitionPage({Key key, this.title}) : super(key: key);

@@ -4,7 +4,7 @@ import '../util/ui_util.dart';
 import 'drawer.dart';
 
 class TablePage extends StatelessWidget {
-  static final rout = '/table';
+  static final route = '/table';
 
   TablePage({Key key, this.title}) : super(key: key);
 

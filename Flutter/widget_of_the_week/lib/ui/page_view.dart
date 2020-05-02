@@ -5,7 +5,7 @@ import 'home.dart';
 import '../util/ui_util.dart';
 
 class WelcomePage extends StatelessWidget {
-  static final rout = '/';
+  static final route = '/';
 
   WelcomePage({Key key, this.title}) : super(key: key);
 
@@ -215,7 +215,7 @@ class WelcomePage3 extends StatelessWidget {
           color: Colors.purpleAccent,
           child: Text('go to Home'),
           onPressed: () {
-            Navigator.pushNamed(context, HomePage.rout);
+            Navigator.pushNamed(context, HomePage.route);
           },
         ),
       ],

@@ -4,7 +4,7 @@ import '../util/ui_util.dart';
 import 'drawer.dart';
 
 class GridPage extends StatelessWidget {
-  static final rout = '/grid';
+  static final route = '/grid';
 
   GridPage({Key key, this.title}) : super(key: key);
 

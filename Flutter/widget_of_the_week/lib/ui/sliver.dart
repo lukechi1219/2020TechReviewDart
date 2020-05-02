@@ -4,7 +4,7 @@ import '../util/ui_util.dart';
 import 'drawer.dart';
 
 class SliverPage extends StatelessWidget {
-  static final rout = '/sliver';
+  static final route = '/sliver';
 
   SliverPage({Key key, this.title}) : super(key: key);
 

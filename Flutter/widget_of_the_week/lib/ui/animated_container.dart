@@ -5,7 +5,7 @@ import 'drawer.dart';
 import '../util/ui_util.dart';
 
 class AnimatedPage extends StatefulWidget {
-  static final rout = '/animated_container';
+  static final route = '/animated_container';
   final String title;
 
   AnimatedPage({Key key, this.title}) : super(key: key);

@@ -4,6 +4,7 @@ import 'animated_container.dart';
 import 'future_builder.dart';
 import 'grid_view.dart';
 import 'home.dart';
+import 'inherited.dart';
 import 'page_view.dart';
 import 'sliver.dart';
 import 'table.dart';
@@ -16,17 +17,16 @@ class RoutesDrawer extends StatelessWidget {
 
   static List<List<String>> widgetList = [
     ['DrawerHeader', ''],
-    ['Welcome', WelcomePage.rout],
-    ['Home', HomePage.rout],
-    ['AnimatedContainer', AnimatedPage.rout],
-    ['FutureBuilder', FuturePage.rout],
-    ['Transition', TransitionPage.rout],
-    ['Table', TablePage.rout],
-    ['Sliver', SliverPage.rout],
-    ['Grid', GridPage.rout],
-//    [
-//      '',
-//    ],
+    ['Welcome', WelcomePage.route],
+    ['Home', HomePage.route],
+    ['AnimatedContainer', AnimatedPage.route],
+    ['FutureBuilder', FuturePage.route],
+    ['Transition', TransitionPage.route],
+    ['Table', TablePage.route],
+    ['Sliver', SliverPage.route],
+    ['Grid', GridPage.route],
+    ['InheritedWidgetPage', InheritedWidgetPage.route],
+    ['InheritedModelPage', InheritedModelPage.route],
 //    [
 //      '',
 //    ],
@@ -46,7 +46,6 @@ class RoutesDrawer extends StatelessWidget {
     return Drawer(
       child: ListView.builder(
         itemBuilder: (context, index) {
-
           var strArr = widgetList[index];
 
           if (index == 0) {
@@ -64,6 +63,7 @@ class RoutesDrawer extends StatelessWidget {
             title: Text(strArr[0]),
             subtitle: Text('sub'),
             onTap: () {
+              // change route
               Navigator.pushNamed(context, strArr[1]);
             },
           );

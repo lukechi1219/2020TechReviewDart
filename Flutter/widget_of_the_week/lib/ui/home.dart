@@ -5,7 +5,7 @@ import 'drawer.dart';
 import '../util/ui_util.dart';
 
 class HomePage extends StatelessWidget {
-  static final rout = '/home';
+  static final route = '/home';
 
   HomePage({Key key, this.title}) : super(key: key);
 

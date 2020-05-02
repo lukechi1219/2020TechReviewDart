@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../util/ui_util.dart';
 import 'drawer.dart';
 
-import '../util/ui_util.dart';
-
 class InheritedWidgetPage extends StatelessWidget {
-  static final rout = '/inherited_widget';
+  static final route = '/inherited_widget';
 
   InheritedWidgetPage({Key key, this.title}) : super(key: key);
 
@@ -20,13 +19,15 @@ class InheritedWidgetPage extends StatelessWidget {
             title: Text(this.title),
           ),
           drawer: RoutesDrawer(),
-          body: Container()),
+          body: Container(
+            child: Text('InheritedWidgetPage'),
+          )),
     );
   }
 }
 
 class InheritedModelPage extends StatelessWidget {
-  static final rout = '/inherited_model';
+  static final route = '/inherited_model';
 
   InheritedModelPage({Key key, this.title}) : super(key: key);
 
@@ -41,7 +42,9 @@ class InheritedModelPage extends StatelessWidget {
             title: Text(this.title),
           ),
           drawer: RoutesDrawer(),
-          body: Container()),
+          body: Container(
+            child: Text('InheritedModelPage'),
+          )),
     );
   }
 }

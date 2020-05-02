@@ -5,7 +5,7 @@ import 'drawer.dart';
 import '../util/ui_util.dart';
 
 class FuturePage extends StatefulWidget {
-  static final rout = '/future_builder';
+  static final route = '/future_builder';
   final String title;
 
   FuturePage({Key key, this.title}) : super(key: key);
