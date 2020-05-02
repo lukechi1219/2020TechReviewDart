@@ -75,7 +75,7 @@ class _AnimatedPageState extends State<AnimatedPage> {
 //                    curve: Curves.easeInQuint,
                       child: Text(
                         'temp',
-                        style: Theme.of(context).textTheme.headline,
+                        style: Theme.of(context).textTheme.headline5,
                       ),
                     ),
                   ],

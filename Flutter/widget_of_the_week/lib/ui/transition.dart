@@ -61,7 +61,7 @@ class _TransitionPageState extends State<TransitionPage>
                   opacity: _animation,
                   child: Text(
                     'FadeTransition here',
-                    style: Theme.of(context).textTheme.display1,
+                    style: Theme.of(context).textTheme.headline4,
                   ),
                 )
               ],
