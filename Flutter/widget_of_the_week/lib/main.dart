@@ -5,6 +5,8 @@ import 'ui/future_builder.dart';
 import 'ui/grid_view.dart';
 import 'ui/home.dart';
 import 'ui/inherited.dart';
+import 'ui/inherited2.dart';
+import 'ui/inherited3.dart';
 import 'ui/page_view.dart';
 import 'ui/sliver.dart';
 import 'ui/table.dart';
@@ -40,7 +42,9 @@ class MyApp extends StatelessWidget {
         SliverPage.route: (context) => SliverPage(title: 'Table'),
         GridPage.route: (context) => GridPage(title: 'Table'),
         InheritedWidgetPage.route: (context) => InheritedWidgetPage(title: 'InheritedWidget'),
-        InheritedModelPage.route: (context) => InheritedModelPage(title: 'InheritedModel'),
+        InheritedModelPage.route: (context) => InheritedModelPage(title: 'InheritedModel 1'),
+        InheritedModelPage2.route: (context) => InheritedModelPage2(title: 'InheritedModel 2'),
+        InheritedModelPage3.route: (context) => InheritedModelPage3(title: 'InheritedModel 3'),
       },
     );
   }

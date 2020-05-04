@@ -5,6 +5,8 @@ import 'future_builder.dart';
 import 'grid_view.dart';
 import 'home.dart';
 import 'inherited.dart';
+import 'inherited2.dart';
+import 'inherited3.dart';
 import 'page_view.dart';
 import 'sliver.dart';
 import 'table.dart';
@@ -27,12 +29,8 @@ class RoutesDrawer extends StatelessWidget {
     ['Grid', GridPage.route],
     ['InheritedWidgetPage', InheritedWidgetPage.route],
     ['InheritedModelPage', InheritedModelPage.route],
-//    [
-//      '',
-//    ],
-//    [
-//      '',
-//    ],
+    ['InheritedModelPage2', InheritedModelPage2.route],
+    ['InheritedModelPage3', InheritedModelPage3.route],
 //    [
 //      '',
 //    ],
