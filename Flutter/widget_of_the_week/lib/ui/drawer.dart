@@ -27,6 +27,7 @@ class RoutesDrawer extends StatelessWidget {
     ['Table', TablePage.route],
     ['Sliver', SliverPage.route],
     ['Grid', GridPage.route],
+    ['NoInheritedWidgetPage', NoInheritedWidgetPage.route],
     ['InheritedWidgetPage', InheritedWidgetPage.route],
     ['InheritedModelPage', InheritedModelPage.route],
     ['InheritedModelPage2', InheritedModelPage2.route],

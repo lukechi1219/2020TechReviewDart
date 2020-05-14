@@ -3,6 +3,136 @@ import 'package:flutter/material.dart';
 import '../util/ui_util.dart';
 import 'drawer.dart';
 
+class NoInheritedWidgetPage extends StatelessWidget {
+  static final route = '/no_inherited_widget';
+
+  NoInheritedWidgetPage({Key key, this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBoxUtil.build(
+      context,
+      Scaffold(
+          appBar: AppBar(
+            title: Text(this.title),
+          ),
+          drawer: RoutesDrawer(),
+          body: NoInheritedWidgetContainer()),
+    );
+  }
+}
+
+class NoInheritedWidgetContainer extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => NoInheritedWidgetContainerState();
+}
+
+class NoInheritedWidgetContainerState
+    extends State<NoInheritedWidgetContainer> {
+  var _colorOne = Colors.red;
+  var _colorTwo = Colors.brown;
+
+  void _switchColor() {
+    setState(() {
+      // change ancestor colors
+      var _temp = _colorOne;
+      _colorOne = _colorTwo;
+      _colorTwo = _temp;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    print('MyAncestor build');
+
+    return Container(
+      child: NoInheritedContainer(
+          colorOne: _colorOne,
+          colorTwo: _colorTwo,
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 10.0,
+              ),
+              NoColorOneWidget(
+                colorOne: _colorOne,
+              ),
+              NoColorTwoWidget(
+                colorTwo: _colorTwo,
+              ),
+              MaterialButton(
+                elevation: 5.0,
+                color: Colors.purpleAccent,
+                child: Text('change color'),
+                onPressed: _switchColor,
+              ),
+              Text('Ancestor $_colorOne'),
+              Text('Ancestor $_colorTwo'),
+            ],
+          )),
+    );
+  }
+}
+
+class NoInheritedContainer extends Container {
+  NoInheritedContainer({
+    Key key,
+    @required this.colorOne,
+    @required this.colorTwo,
+    @required Widget child,
+  })  : assert(colorOne != null),
+        assert(colorTwo != null),
+        assert(child != null),
+        super(child: child);
+
+  final Color colorOne;
+  final Color colorTwo;
+}
+
+class NoColorOneWidget extends StatelessWidget {
+  const NoColorOneWidget({
+    Key key,
+    @required this.colorOne,
+  }) : super(key: key);
+
+  final Color colorOne;
+
+  @override
+  Widget build(BuildContext context) {
+    print('ColorOneWidget build');
+
+    return Container(
+      color: this.colorOne,
+      height: 50.0,
+      width: 50.0,
+    );
+  }
+}
+
+class NoColorTwoWidget extends StatelessWidget {
+  const NoColorTwoWidget({
+    Key key,
+    @required this.colorTwo,
+  }) : super(key: key);
+
+  final Color colorTwo;
+
+  @override
+  Widget build(BuildContext context) {
+    print('ColorTwoWidget build');
+
+    return Container(
+      color: this.colorTwo,
+      height: 50.0,
+      width: 50.0,
+    );
+  }
+}
+
+/// ****************************************************************************
+
 class InheritedWidgetPage extends StatelessWidget {
   static final route = '/inherited_widget';
 

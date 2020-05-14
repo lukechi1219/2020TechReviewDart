@@ -41,6 +41,7 @@ class MyApp extends StatelessWidget {
         TablePage.route: (context) => TablePage(title: 'Table'),
         SliverPage.route: (context) => SliverPage(title: 'Table'),
         GridPage.route: (context) => GridPage(title: 'Table'),
+        NoInheritedWidgetPage.route: (context) => NoInheritedWidgetPage(title: 'InheritedWidget'),
         InheritedWidgetPage.route: (context) => InheritedWidgetPage(title: 'InheritedWidget'),
         InheritedModelPage.route: (context) => InheritedModelPage(title: 'InheritedModel 1'),
         InheritedModelPage2.route: (context) => InheritedModelPage2(title: 'InheritedModel 2'),
