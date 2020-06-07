@@ -4,7 +4,7 @@ import 'package:clean_architecture_tdd_course/features/number_trivia/domain/enti
 import 'package:clean_architecture_tdd_course/features/number_trivia/domain/repositories/number_trivia_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/foundation.dart';
+import 'package:meta/meta.dart';
 
 class GetConcreteNumberTrivia extends UseCase<NumberTrivia, Params> {
   final NumberTriviaRepository repository;
