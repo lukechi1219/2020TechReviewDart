@@ -1,4 +1,4 @@
-import 'package:clean_architecture_tdd_course/core/error/failure.dart';
+import 'package:clean_architecture_tdd_course/core/error/failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 
