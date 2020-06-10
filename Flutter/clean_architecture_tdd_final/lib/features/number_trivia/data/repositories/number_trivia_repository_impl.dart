@@ -10,6 +10,8 @@ import 'package:clean_architecture_tdd_course/features/number_trivia/domain/repo
 import 'package:dartz/dartz.dart';
 import 'package:meta/meta.dart';
 
+typedef Future<Right<Failure, T>> _ConcreteOrRandomChooser<T>(int number);
+
 class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
   final NumberTriviaRemoteDataSource remoteDataSource;
   final NumberTriviaLocalDataSource localDataSource;
@@ -23,14 +25,23 @@ class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
 
   @override
   Future<Either<Failure, NumberTrivia>> getConcreteNumberTrivia(
-    int number,
-  ) async {
+      int number) async {
+    return await _getTrivia(_getConcreteNumberTrivia, number);
+  }
+
+  @override
+  Future<Either<Failure, NumberTrivia>> getRandomNumberTrivia() async {
+    return await _getTrivia(_getRandomNumberNumberTrivia, 0);
+  }
+
+  Future<Either<Failure, NumberTrivia>> _getTrivia(
+      _ConcreteOrRandomChooser<NumberTrivia> getConcreteOrRandom,
+      int number) async {
+    //
     if (await networkInfo.isConnected) {
-      return await catchException<NumberTrivia>(
-          _getConcreteNumberTrivia, number);
+      return catchServerException<NumberTrivia>(getConcreteOrRandom, number);
     }
-    final localTrivai = await localDataSource.getLastNumberTrivia();
-    return Right(localTrivai);
+    return catchCacheException<NumberTrivia>(_getLastNumberTriviaInCache);
   }
 
   Future<Right<Failure, NumberTrivia>> _getConcreteNumberTrivia(
@@ -40,9 +51,16 @@ class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
     return Right(remoteTrivia);
   }
 
-  @override
-  Future<Either<Failure, NumberTrivia>> getRandomNumberTrivia() {
-    networkInfo.isConnected;
-    return null;
+  Future<Right<Failure, NumberTrivia>> _getRandomNumberNumberTrivia(
+      int number) async {
+    final remoteTrivia = await remoteDataSource.getRandomNumberTrivia();
+    localDataSource.cacheNumberTrivia(remoteTrivia);
+    return Right(remoteTrivia);
+  }
+
+  Future<Right<Failure, NumberTrivia>> _getLastNumberTriviaInCache(
+      int number) async {
+    final localTrivia = await localDataSource.getLastNumberTrivia();
+    return Right(localTrivia);
   }
 }
