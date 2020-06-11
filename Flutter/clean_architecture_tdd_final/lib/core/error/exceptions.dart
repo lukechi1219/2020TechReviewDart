@@ -6,21 +6,21 @@ class ServerException implements Exception {}
 
 class CacheException implements Exception {}
 
-typedef Future<Right<Failure, T>> _ConcreteOrRandomChooser<T>(int number);
+typedef Future<Right<Failure, T>> _function<T>(List params);
 
 Future<Either<Failure, T>> catchServerException<T>(
-    _ConcreteOrRandomChooser<T> functionBody, int number) async {
+    _function<T> functionBody, List params) async {
   try {
-    return await functionBody(number);
+    return await functionBody(params);
   } on ServerException {
     return Left(ServerFailure());
   }
 }
 
 Future<Either<Failure, T>> catchCacheException<T>(
-    _ConcreteOrRandomChooser<T> functionBody) async {
+    _function<T> functionBody) async {
   try {
-    return await functionBody(0);
+    return await functionBody([0]);
   } on CacheException {
     return Left(CacheFailure());
   }

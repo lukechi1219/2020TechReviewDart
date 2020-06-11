@@ -10,7 +10,7 @@ import 'package:clean_architecture_tdd_course/features/number_trivia/domain/repo
 import 'package:dartz/dartz.dart';
 import 'package:meta/meta.dart';
 
-typedef Future<Right<Failure, T>> _ConcreteOrRandomChooser<T>(int number);
+typedef Future<Right<Failure, T>> _ConcreteOrRandomChooser<T>(List params);
 
 class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
   final NumberTriviaRemoteDataSource remoteDataSource;
@@ -39,27 +39,27 @@ class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
       int number) async {
     //
     if (await networkInfo.isConnected) {
-      return catchServerException<NumberTrivia>(getConcreteOrRandom, number);
+      return catchServerException<NumberTrivia>(getConcreteOrRandom, [number]);
     }
     return catchCacheException<NumberTrivia>(_getLastNumberTriviaInCache);
   }
 
   Future<Right<Failure, NumberTrivia>> _getConcreteNumberTrivia(
-      int number) async {
-    final remoteTrivia = await remoteDataSource.getConcreteNumberTrivia(number);
+      List params) async {
+    final remoteTrivia = await remoteDataSource.getConcreteNumberTrivia(params[0]);
     localDataSource.cacheNumberTrivia(remoteTrivia);
     return Right(remoteTrivia);
   }
 
   Future<Right<Failure, NumberTrivia>> _getRandomNumberNumberTrivia(
-      int number) async {
+      List params) async {
     final remoteTrivia = await remoteDataSource.getRandomNumberTrivia();
     localDataSource.cacheNumberTrivia(remoteTrivia);
     return Right(remoteTrivia);
   }
 
   Future<Right<Failure, NumberTrivia>> _getLastNumberTriviaInCache(
-      int number) async {
+      List params) async {
     final localTrivia = await localDataSource.getLastNumberTrivia();
     return Right(localTrivia);
   }
