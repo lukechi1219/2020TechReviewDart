@@ -1,14 +1,14 @@
 import 'package:clean_architecture_tdd_course/core/error/exceptions.dart';
 import 'package:clean_architecture_tdd_course/core/error/failures.dart';
-import 'package:clean_architecture_tdd_course/core/platform/network_info.dart';
+import 'package:clean_architecture_tdd_course/core/network/network_info.dart';
 import 'package:clean_architecture_tdd_course/features/number_trivia/data/datasources/number_trivia_local_data_source.dart';
 import 'package:clean_architecture_tdd_course/features/number_trivia/data/datasources/number_trivia_remote_data_source.dart';
 import 'package:clean_architecture_tdd_course/features/number_trivia/data/models/number_trivia_model.dart';
 import 'package:clean_architecture_tdd_course/features/number_trivia/data/repositories/number_trivia_repository_impl.dart';
 import 'package:clean_architecture_tdd_course/features/number_trivia/domain/entities/number_trivia.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 class MockRemoteDataSource extends Mock
     implements NumberTriviaRemoteDataSource {}
@@ -61,13 +61,17 @@ void main() {
         NumberTriviaModel(number: tNumber, text: 'test trivia');
     final NumberTrivia tNumberTrivia = tNumberTriviaModel;
 
-    test('should check if the device is online', () async {
-      when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
-
-      repository.getConcreteNumberTrivia(tNumber);
-
-      verify(mockNetworkInfo.isConnected);
-    });
+    test(
+      'should check if the device is online',
+      () async {
+        // arrange
+        when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
+        // act
+        repository.getConcreteNumberTrivia(tNumber);
+        // assert
+        verify(mockNetworkInfo.isConnected);
+      },
+    );
 
     runTestsOnline(() {
       test(
@@ -94,7 +98,7 @@ void main() {
           await repository.getConcreteNumberTrivia(tNumber);
           // assert
           verify(mockRemoteDataSource.getConcreteNumberTrivia(tNumber));
-          verify(mockLocalDataSource.cacheNumberTrivia(tNumberTrivia));
+          verify(mockLocalDataSource.cacheNumberTrivia(tNumberTriviaModel));
         },
       );
 
@@ -126,7 +130,6 @@ void main() {
           // assert
           verifyZeroInteractions(mockRemoteDataSource);
           verify(mockLocalDataSource.getLastNumberTrivia());
-//          expect(result, equals(Right(NumberTriviaModel(number: tNumber, text: 'test trivia 1'))));
           expect(result, equals(Right(tNumberTrivia)));
         },
       );
@@ -153,13 +156,17 @@ void main() {
         NumberTriviaModel(number: 123, text: 'test trivia');
     final NumberTrivia tNumberTrivia = tNumberTriviaModel;
 
-    test('should check if the device is online', () async {
-      when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
-
-      repository.getRandomNumberTrivia();
-
-      verify(mockNetworkInfo.isConnected);
-    });
+    test(
+      'should check if the device is online',
+      () async {
+        // arrange
+        when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
+        // act
+        repository.getRandomNumberTrivia();
+        // assert
+        verify(mockNetworkInfo.isConnected);
+      },
+    );
 
     runTestsOnline(() {
       test(
@@ -186,7 +193,7 @@ void main() {
           await repository.getRandomNumberTrivia();
           // assert
           verify(mockRemoteDataSource.getRandomNumberTrivia());
-          verify(mockLocalDataSource.cacheNumberTrivia(tNumberTrivia));
+          verify(mockLocalDataSource.cacheNumberTrivia(tNumberTriviaModel));
         },
       );
 
@@ -218,7 +225,6 @@ void main() {
           // assert
           verifyZeroInteractions(mockRemoteDataSource);
           verify(mockLocalDataSource.getLastNumberTrivia());
-//          expect(result, equals(Right(NumberTriviaModel(number: tNumber, text: 'test trivia 1'))));
           expect(result, equals(Right(tNumberTrivia)));
         },
       );

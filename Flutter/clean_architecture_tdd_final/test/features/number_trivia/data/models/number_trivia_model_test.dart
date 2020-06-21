@@ -6,18 +6,16 @@ import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../fixtures/fixture_reader.dart';
 
-
 void main() {
   final tNumberTriviaModel = NumberTriviaModel(number: 1, text: 'Test Text');
 
-  setUp(() {
-    //
-  });
-
-  test('should be a subclass of NumberTrivia entity', () async {
-    // assert
-    expect(tNumberTriviaModel, isA<NumberTrivia>());
-  });
+  test(
+    'should be a subclass of NumberTrivia entity',
+    () async {
+      // assert
+      expect(tNumberTriviaModel, isA<NumberTrivia>());
+    },
+  );
 
   group('fromJson', () {
     test(
@@ -34,7 +32,7 @@ void main() {
     );
 
     test(
-      'should return a valid model when the JSON number is an integer',
+      'should return a valid model when the JSON number is regarded as a double',
       () async {
         // arrange
         final Map<String, dynamic> jsonMap =
@@ -54,11 +52,11 @@ void main() {
         // act
         final result = tNumberTriviaModel.toJson();
         // assert
-        final expectedJsonMap = {
+        final expectedMap = {
           "text": "Test Text",
           "number": 1,
         };
-        expect(result, expectedJsonMap);
+        expect(result, expectedMap);
       },
     );
   });
