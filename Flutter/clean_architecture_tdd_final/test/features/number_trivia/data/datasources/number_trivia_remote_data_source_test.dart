@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:clean_architecture_tdd_course/core/error/exceptions.dart';
-import 'package:clean_architecture_tdd_course/features/number_trivia/data/datasources/number_trivia_remote_data_source.dart';
-import 'package:clean_architecture_tdd_course/features/number_trivia/data/models/number_trivia_model.dart';
+import 'package:clean_architecture_tdd_final/core/error/exceptions.dart';
+import 'package:clean_architecture_tdd_final/features/number_trivia/data/datasources/number_trivia_remote_data_source.dart';
+import 'package:clean_architecture_tdd_final/features/number_trivia/data/models/number_trivia_model.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:matcher/matcher.dart';

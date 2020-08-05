@@ -1,4 +1,4 @@
-import 'package:clean_architecture_tdd_course/core/util/input_converter.dart';
+import 'package:clean_architecture_tdd_final/core/util/input_converter.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 

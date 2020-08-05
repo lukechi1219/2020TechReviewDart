@@ -1,10 +1,10 @@
-import 'package:clean_architecture_tdd_course/core/error/failures.dart';
-import 'package:clean_architecture_tdd_course/core/usecases/usecase.dart';
-import 'package:clean_architecture_tdd_course/core/util/input_converter.dart';
-import 'package:clean_architecture_tdd_course/features/number_trivia/domain/entities/number_trivia.dart';
-import 'package:clean_architecture_tdd_course/features/number_trivia/domain/usecases/get_concrete_number_trivia.dart';
-import 'package:clean_architecture_tdd_course/features/number_trivia/domain/usecases/get_random_number_trivia.dart';
-import 'package:clean_architecture_tdd_course/features/number_trivia/presentation/bloc/bloc.dart';
+import 'package:clean_architecture_tdd_final/core/error/failures.dart';
+import 'package:clean_architecture_tdd_final/core/usecases/usecase.dart';
+import 'package:clean_architecture_tdd_final/core/util/input_converter.dart';
+import 'package:clean_architecture_tdd_final/features/number_trivia/domain/entities/number_trivia.dart';
+import 'package:clean_architecture_tdd_final/features/number_trivia/domain/usecases/get_concrete_number_trivia.dart';
+import 'package:clean_architecture_tdd_final/features/number_trivia/domain/usecases/get_random_number_trivia.dart';
+import 'package:clean_architecture_tdd_final/features/number_trivia/presentation/bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';

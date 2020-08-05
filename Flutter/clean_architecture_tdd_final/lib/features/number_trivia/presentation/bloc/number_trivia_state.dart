@@ -1,4 +1,4 @@
-import 'package:clean_architecture_tdd_course/features/number_trivia/domain/entities/number_trivia.dart';
+import 'package:clean_architecture_tdd_final/features/number_trivia/domain/entities/number_trivia.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 

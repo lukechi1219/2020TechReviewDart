@@ -1,10 +1,10 @@
-import 'package:clean_architecture_tdd_course/core/network/network_info.dart';
-import 'package:clean_architecture_tdd_course/core/util/input_converter.dart';
-import 'package:clean_architecture_tdd_course/features/number_trivia/data/repositories/number_trivia_repository_impl.dart';
-import 'package:clean_architecture_tdd_course/features/number_trivia/domain/repositories/number_trivia_repository.dart';
-import 'package:clean_architecture_tdd_course/features/number_trivia/domain/usecases/get_concrete_number_trivia.dart';
-import 'package:clean_architecture_tdd_course/features/number_trivia/domain/usecases/get_random_number_trivia.dart';
-import 'package:clean_architecture_tdd_course/features/number_trivia/presentation/bloc/bloc.dart';
+import 'package:clean_architecture_tdd_final/core/network/network_info.dart';
+import 'package:clean_architecture_tdd_final/core/util/input_converter.dart';
+import 'package:clean_architecture_tdd_final/features/number_trivia/data/repositories/number_trivia_repository_impl.dart';
+import 'package:clean_architecture_tdd_final/features/number_trivia/domain/repositories/number_trivia_repository.dart';
+import 'package:clean_architecture_tdd_final/features/number_trivia/domain/usecases/get_concrete_number_trivia.dart';
+import 'package:clean_architecture_tdd_final/features/number_trivia/domain/usecases/get_random_number_trivia.dart';
+import 'package:clean_architecture_tdd_final/features/number_trivia/presentation/bloc/bloc.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
@@ -21,20 +21,23 @@ Future<void> init() async {
   sl.registerFactory(
     () => NumberTriviaBloc(
       concrete: sl(),
-      random: sl(),
       inputConverter: sl(),
+      random: sl(),
     ),
   );
+
   // Use cases
   sl.registerLazySingleton(() => GetConcreteNumberTrivia(sl()));
   sl.registerLazySingleton(() => GetRandomNumberTrivia(sl()));
 
   // Repository
-  sl.registerLazySingleton<NumberTriviaRepository>(() => NumberTriviaRepositoryImpl(
-        networkInfo: sl(),
-        remoteDataSource: sl(),
-        localDataSource: sl(),
-      ));
+  sl.registerLazySingleton<NumberTriviaRepository>(
+    () => NumberTriviaRepositoryImpl(
+      localDataSource: sl(),
+      networkInfo: sl(),
+      remoteDataSource: sl(),
+    ),
+  );
 
   // Data sources
   sl.registerLazySingleton<NumberTriviaRemoteDataSource>(

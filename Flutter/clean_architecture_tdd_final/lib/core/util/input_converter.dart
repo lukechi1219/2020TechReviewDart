@@ -1,4 +1,4 @@
-import 'package:clean_architecture_tdd_course/core/error/failures.dart';
+import 'package:clean_architecture_tdd_final/core/error/failures.dart';
 import 'package:dartz/dartz.dart';
 
 class InputConverter {
