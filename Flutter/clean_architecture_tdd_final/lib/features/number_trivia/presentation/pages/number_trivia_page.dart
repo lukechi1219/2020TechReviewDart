@@ -1,4 +1,5 @@
 import 'package:clean_architecture_tdd_final/features/number_trivia/presentation/bloc/bloc.dart';
+import 'package:clean_architecture_tdd_final/features/number_trivia/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -34,9 +35,9 @@ class NumberTriviaPage extends StatelessWidget {
                       message: 'Start searching!',
                     );
                   } else if (state is Loading) {
-                    return null;
+                    return LoadingWidget();
                   } else if (state is Loaded) {
-                    return null;
+                    return TriviaDisplay(numberTrivia: state.trivia);
                   } else if (state is Error) {
                     return MessageDisplay(
                       message: state.message,
@@ -55,15 +56,5 @@ class NumberTriviaPage extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Container MessageDisplay({@required String message}) {
-    return Container(
-      child: Text(message),
-    );
-  }
-
-  TriviaControls() {
-    return Text('controls');
   }
 }
