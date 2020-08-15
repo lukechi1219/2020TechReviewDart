@@ -12,5 +12,5 @@ class NetworkInfoImpl implements NetworkInfo {
 
   @override
   Future<bool> get isConnected =>
-      kIsWeb ? true : connectionChecker.hasConnection;
+      kIsWeb ? Future.value(true) : connectionChecker.hasConnection;
 }
